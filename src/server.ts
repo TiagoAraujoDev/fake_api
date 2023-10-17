@@ -14,10 +14,13 @@ fastify.get("/items", (_: FastifyRequest, reply: FastifyReply) => {
 
 fastify.listen(
   {
-    port: 8080,
     host: "0.0.0.0",
+    port: 8080,
   },
-  () => {
-    console.log("Server running");
+  (err, address) => {
+    if (!err) {
+      console.log("🚀 Server running!");
+      console.log(`🌐 Access: ${address}`);
+    }
   }
 );
